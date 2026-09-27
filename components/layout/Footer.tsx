@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { linkWhatsApp, mensagensWhatsApp } from "@/lib/whatsapp";
 
 const LINKS = [
   { href: "/#apps", label: "Apps" },
@@ -13,14 +14,8 @@ const REDES = [
   { href: "https://www.youtube.com/@infinityrecargas", label: "YouTube" },
 ];
 
-const NUMERO_WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
-const MENSAGEM_GENERICA = "Olá! Vim pelo site e quero saber mais sobre os apps.";
-
 export function Footer() {
   const ano = new Date().getFullYear();
-  const whatsappHref = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(
-    MENSAGEM_GENERICA
-  )}`;
 
   return (
     <footer className="border-t border-cinza-escuro bg-cinza-escuro/30">
@@ -51,7 +46,7 @@ export function Footer() {
               </Link>
             ))}
             <a
-              href={whatsappHref}
+              href={linkWhatsApp(mensagensWhatsApp.generico())}
               target="_blank"
               rel="noopener"
               className="text-sm text-cinza-claro hover:text-roxo"

@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { BotaoWhatsApp } from "@/components/ui/BotaoWhatsApp";
+import { mensagensWhatsApp } from "@/lib/whatsapp";
 
 type LinkItem = {
   href: string;
@@ -13,17 +15,9 @@ type MenuMobileProps = {
   aberto: boolean;
   onFechar: () => void;
   links: LinkItem[];
-  numeroWhatsApp: string;
-  mensagemWhatsApp: string;
 };
 
-export function MenuMobile({
-  aberto,
-  onFechar,
-  links,
-  numeroWhatsApp,
-  mensagemWhatsApp,
-}: MenuMobileProps) {
+export function MenuMobile({ aberto, onFechar, links }: MenuMobileProps) {
   const fecharRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -45,10 +39,6 @@ export function MenuMobile({
   }, [aberto, onFechar]);
 
   if (!aberto) return null;
-
-  const whatsappHref = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
-    mensagemWhatsApp
-  )}`;
 
   return (
     <div
@@ -82,15 +72,13 @@ export function MenuMobile({
           </Link>
         ))}
 
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener"
+        <BotaoWhatsApp
+          mensagem={mensagensWhatsApp.generico()}
           onClick={onFechar}
-          className="mt-4 flex min-h-11 items-center justify-center rounded-lg bg-roxo px-4 text-base font-semibold text-cinza-claro"
+          className="mt-4 w-full"
         >
           Falar no WhatsApp
-        </a>
+        </BotaoWhatsApp>
       </nav>
     </div>
   );

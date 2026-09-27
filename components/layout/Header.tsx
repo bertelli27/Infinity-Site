@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { MenuMobile } from "./MenuMobile";
+import { BotaoWhatsApp } from "@/components/ui/BotaoWhatsApp";
+import { mensagensWhatsApp } from "@/lib/whatsapp";
 
 const LINKS = [
   { href: "/#apps", label: "Apps" },
@@ -13,15 +15,8 @@ const LINKS = [
   { href: "/#duvidas", label: "Dúvidas" },
 ];
 
-const NUMERO_WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
-const MENSAGEM_GENERICA = "Olá! Vim pelo site e quero saber mais sobre os apps.";
-
 export function Header() {
   const [menuAberto, setMenuAberto] = useState(false);
-
-  const whatsappHref = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(
-    MENSAGEM_GENERICA
-  )}`;
 
   return (
     <header className="sticky top-0 z-40 border-b border-cinza-escuro bg-preto/90 backdrop-blur">
@@ -50,14 +45,12 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener"
-            className="hidden min-h-11 items-center rounded-lg bg-roxo px-4 text-sm font-semibold text-cinza-claro hover:bg-roxo-escuro md:flex"
+          <BotaoWhatsApp
+            mensagem={mensagensWhatsApp.generico()}
+            className="hidden md:inline-flex"
           >
             Falar no WhatsApp
-          </a>
+          </BotaoWhatsApp>
 
           <button
             type="button"
@@ -75,8 +68,6 @@ export function Header() {
         aberto={menuAberto}
         onFechar={() => setMenuAberto(false)}
         links={LINKS}
-        numeroWhatsApp={NUMERO_WHATSAPP}
-        mensagemWhatsApp={MENSAGEM_GENERICA}
       />
     </header>
   );
