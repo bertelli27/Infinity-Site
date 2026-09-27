@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import { Botao } from "@/components/ui/Botao";
 import { BotaoWhatsApp } from "@/components/ui/BotaoWhatsApp";
 import { mensagensWhatsApp } from "@/lib/whatsapp";
+
+export const metadata: Metadata = {
+  title: "Página não encontrada",
+};
 
 export default function NotFound() {
   return (

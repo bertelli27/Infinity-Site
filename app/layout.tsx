@@ -17,6 +17,8 @@ const raleway = Raleway({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const descricaoSite =
+  "Nexa TV, NexoCine e UniTV: apps de TV, filmes e séries com suporte na instalação e atendimento pelo WhatsApp.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -24,8 +26,14 @@ export const metadata: Metadata = {
     default: "Infinity Recargas",
     template: "%s | Infinity Recargas",
   },
-  description:
-    "Nexa TV, NexoCine e UniTV: apps de TV, filmes e séries com suporte na instalação e atendimento pelo WhatsApp.",
+  description: descricaoSite,
+  openGraph: {
+    title: "Infinity Recargas",
+    description: descricaoSite,
+    siteName: "Infinity Recargas",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -35,8 +43,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${orbitron.variable} ${raleway.variable} h-full`}
     >
       <body className="flex min-h-full flex-col font-raleway antialiased">
+        <a
+          href="#conteudo"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-roxo focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-cinza-claro"
+        >
+          Pular para o conteúdo
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="conteudo" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
