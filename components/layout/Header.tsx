@@ -1,0 +1,83 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Menu } from "lucide-react";
+import { MenuMobile } from "./MenuMobile";
+
+const LINKS = [
+  { href: "/#apps", label: "Apps" },
+  { href: "/#como-funciona", label: "Como funciona" },
+  { href: "/tutoriais", label: "Tutoriais" },
+  { href: "/#duvidas", label: "Dúvidas" },
+];
+
+const NUMERO_WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
+const MENSAGEM_GENERICA = "Olá! Vim pelo site e quero saber mais sobre os apps.";
+
+export function Header() {
+  const [menuAberto, setMenuAberto] = useState(false);
+
+  const whatsappHref = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(
+    MENSAGEM_GENERICA
+  )}`;
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-cinza-escuro bg-preto/90 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <Link href="/" className="flex items-center" aria-label="Infinity Recargas, ir para a home">
+          <Image
+            src="/logo-colorido.png"
+            alt="Infinity Recargas"
+            width={160}
+            height={87}
+            priority
+            className="h-9 w-auto"
+          />
+        </Link>
+
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Navegação principal">
+          {LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm text-cinza-claro hover:text-roxo"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener"
+            className="hidden min-h-11 items-center rounded-lg bg-roxo px-4 text-sm font-semibold text-cinza-claro hover:bg-roxo-escuro md:flex"
+          >
+            Falar no WhatsApp
+          </a>
+
+          <button
+            type="button"
+            onClick={() => setMenuAberto(true)}
+            aria-label="Abrir menu"
+            aria-expanded={menuAberto}
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-cinza-claro md:hidden"
+          >
+            <Menu aria-hidden="true" size={24} />
+          </button>
+        </div>
+      </div>
+
+      <MenuMobile
+        aberto={menuAberto}
+        onFechar={() => setMenuAberto(false)}
+        links={LINKS}
+        numeroWhatsApp={NUMERO_WHATSAPP}
+        mensagemWhatsApp={MENSAGEM_GENERICA}
+      />
+    </header>
+  );
+}
