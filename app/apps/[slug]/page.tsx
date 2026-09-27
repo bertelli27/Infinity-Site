@@ -10,6 +10,8 @@ import { Botao } from "@/components/ui/Botao";
 import { Accordion } from "@/components/ui/Accordion";
 import { mensagensWhatsApp } from "@/lib/whatsapp";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return listarApps().map((app) => ({ slug: app.slug }));
 }

@@ -38,6 +38,7 @@ export function TutoriaisDestaque() {
               titulo={destaque.titulo}
               resumo={destaque.resumo}
               href="/tutoriais"
+              rotulo="Ver tutoriais"
             />
           ))}
         </div>
