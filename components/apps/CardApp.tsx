@@ -16,8 +16,8 @@ export function CardApp({ app }: CardAppProps) {
 
   return (
     <div
-      className="flex flex-col rounded-2xl border border-cinza-escuro bg-cinza-escuro/30 p-6"
-      style={{ borderTopColor: app.corAcento, borderTopWidth: 2 }}
+      className="superficie flex flex-col rounded-2xl p-6"
+      style={{ borderTopColor: app.corAcento, borderTopWidth: 3 }}
     >
       <Image
         src={app.logo}
@@ -53,7 +53,7 @@ export function CardApp({ app }: CardAppProps) {
         </div>
       )}
 
-      <div className="mt-6 flex flex-col gap-2">
+      <div className="mt-auto flex flex-col gap-2 pt-6">
         <BotaoWhatsApp mensagem={mensagensWhatsApp.app(app.nome)}>
           Quero o {app.nome}
         </BotaoWhatsApp>

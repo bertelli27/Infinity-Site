@@ -8,6 +8,7 @@ import { Dispositivos } from "@/components/apps/Dispositivos";
 import { BotaoWhatsApp } from "@/components/ui/BotaoWhatsApp";
 import { Botao } from "@/components/ui/Botao";
 import { Accordion } from "@/components/ui/Accordion";
+import { Divisor } from "@/components/ui/Divisor";
 import { mensagensWhatsApp } from "@/lib/whatsapp";
 
 export const dynamicParams = false;
@@ -60,21 +61,30 @@ export default async function PaginaApp({
 
   return (
     <>
-      <section className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <Image
-          src={app.logo}
-          alt={`Logo do ${app.nome}`}
-          width={200}
-          height={80}
-          priority
-          className="mx-auto h-16 w-auto"
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            background: `radial-gradient(ellipse 60% 60% at 50% 0%, ${app.corAcento}26, transparent 65%)`,
+          }}
         />
-        <h1 className="mt-6 font-orbitron text-3xl text-cinza-claro sm:text-4xl">
-          {app.nome}
-        </h1>
-        <p className="mx-auto mt-4 max-w-xl text-cinza-claro/70">
-          {app.descricao}
-        </p>
+        <div className="mx-auto max-w-4xl px-4 py-16 text-center">
+          <Image
+            src={app.logo}
+            alt={`Logo do ${app.nome}`}
+            width={200}
+            height={80}
+            priority
+            className="mx-auto h-16 w-auto"
+          />
+          <h1 className="mt-6 font-orbitron text-3xl text-cinza-claro sm:text-4xl">
+            {app.nome}
+          </h1>
+          <p className="mx-auto mt-4 max-w-xl text-cinza-claro/70">
+            {app.descricao}
+          </p>
+        </div>
       </section>
 
       <section className="mx-auto max-w-4xl px-4 pb-16">
@@ -127,7 +137,8 @@ export default async function PaginaApp({
         </div>
       </section>
 
-      <section className="border-t border-cinza-escuro">
+      <section>
+        <Divisor />
         <div className="mx-auto max-w-4xl px-4 py-16 text-center">
           <h2 className="font-orbitron text-2xl text-cinza-claro sm:text-3xl">
             Tutoriais do {app.nome}
@@ -143,12 +154,13 @@ export default async function PaginaApp({
         </div>
       </section>
 
-      <section className="border-t border-cinza-escuro">
+      <section>
+        <Divisor />
         <div className="mx-auto max-w-3xl px-4 py-16">
           <h2 className="text-center font-orbitron text-2xl text-cinza-claro sm:text-3xl">
             Dúvidas sobre o {app.nome}
           </h2>
-          <div className="mt-10">
+          <div className="superficie mt-10 rounded-2xl px-6">
             <Accordion itens={faqDoApp(app.nome)} />
           </div>
         </div>

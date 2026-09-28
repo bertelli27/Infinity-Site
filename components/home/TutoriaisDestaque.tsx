@@ -1,5 +1,6 @@
 import { CardTutorial } from "@/components/tutoriais/CardTutorial";
 import { Botao } from "@/components/ui/Botao";
+import { Divisor } from "@/components/ui/Divisor";
 
 const DESTAQUES = [
   {
@@ -22,7 +23,8 @@ const DESTAQUES = [
 
 export function TutoriaisDestaque() {
   return (
-    <section className="border-t border-cinza-escuro">
+    <section>
+      <Divisor />
       <div className="mx-auto max-w-6xl px-4 py-16">
         <h2 className="text-center font-orbitron text-2xl text-cinza-claro sm:text-3xl">
           Tutoriais em destaque

@@ -77,7 +77,7 @@ export default async function PaginaTutorial({
         <MDXRemote source={tutorial.conteudo} components={{ Passo, Aviso }} />
       </div>
 
-      <div className="mt-12 rounded-xl border border-cinza-escuro p-6 text-center">
+      <div className="superficie mt-12 rounded-xl p-6 text-center">
         <p className="text-sm font-semibold text-cinza-claro">
           Travou em algum passo?
         </p>

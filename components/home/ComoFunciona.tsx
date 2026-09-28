@@ -1,4 +1,5 @@
 import { MessageCircle, Gift, Wallet, CheckCircle2 } from "lucide-react";
+import { Divisor } from "@/components/ui/Divisor";
 
 const PASSOS = [
   {
@@ -26,7 +27,8 @@ const PASSOS = [
 
 export function ComoFunciona() {
   return (
-    <section id="como-funciona" className="border-t border-cinza-escuro scroll-mt-16">
+    <section id="como-funciona" className="scroll-mt-16">
+      <Divisor />
       <div className="mx-auto max-w-6xl px-4 py-16">
         <h2 className="text-center font-orbitron text-2xl text-cinza-claro sm:text-3xl">
           Como funciona
@@ -35,7 +37,7 @@ export function ComoFunciona() {
         <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {PASSOS.map((passo, indice) => (
             <li key={passo.titulo} className="flex flex-col items-center text-center">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-roxo/10 text-roxo">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-roxo/10 text-roxo shadow-[0_0_24px_-8px_rgba(138,43,226,0.6)]">
                 <passo.icone aria-hidden="true" size={24} />
               </span>
               <span className="mt-4 text-xs font-semibold text-roxo">

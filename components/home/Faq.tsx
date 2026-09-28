@@ -1,4 +1,5 @@
 import { Accordion } from "@/components/ui/Accordion";
+import { Divisor } from "@/components/ui/Divisor";
 
 const PERGUNTAS = [
   {
@@ -43,13 +44,14 @@ const PERGUNTAS = [
 
 export function Faq() {
   return (
-    <section id="duvidas" className="border-t border-cinza-escuro scroll-mt-16">
+    <section id="duvidas" className="scroll-mt-16">
+      <Divisor />
       <div className="mx-auto max-w-3xl px-4 py-16">
         <h2 className="text-center font-orbitron text-2xl text-cinza-claro sm:text-3xl">
           Dúvidas frequentes
         </h2>
 
-        <div className="mt-10">
+        <div className="superficie mt-10 rounded-2xl px-6">
           <Accordion itens={PERGUNTAS} />
         </div>
       </div>

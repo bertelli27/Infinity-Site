@@ -1,4 +1,5 @@
 import { Headset, Shield, Infinity as InfinityIcon, Zap } from "lucide-react";
+import { Divisor } from "@/components/ui/Divisor";
 
 const MOTIVOS = [
   {
@@ -25,7 +26,8 @@ const MOTIVOS = [
 
 export function PorQue() {
   return (
-    <section className="border-t border-cinza-escuro">
+    <section>
+      <Divisor />
       <div className="mx-auto max-w-6xl px-4 py-16">
         <h2 className="text-center font-orbitron text-2xl text-cinza-claro sm:text-3xl">
           Por que a Infinity
@@ -34,7 +36,7 @@ export function PorQue() {
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {MOTIVOS.map((motivo) => (
             <div key={motivo.titulo} className="flex flex-col items-center text-center">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-roxo/10 text-roxo">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-roxo/10 text-roxo shadow-[0_0_24px_-8px_rgba(138,43,226,0.6)]">
                 <motivo.icone aria-hidden="true" size={24} />
               </span>
               <h3 className="mt-4 text-sm font-semibold text-cinza-claro">
