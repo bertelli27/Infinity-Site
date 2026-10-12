@@ -21,7 +21,7 @@ export function Footer() {
     <footer className="border-t border-cinza-escuro bg-cinza-escuro/30">
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="flex flex-col gap-8 md:flex-row md:justify-between">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-start gap-3">
             <Image
               src="/logo-colorido.png"
               alt="Infinity Recargas"
