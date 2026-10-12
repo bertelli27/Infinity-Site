@@ -73,10 +73,10 @@ export default async function PaginaApp({
           <Image
             src={app.logo}
             alt={`Logo do ${app.nome}`}
-            width={200}
-            height={80}
+            width={96}
+            height={96}
             priority
-            className="mx-auto h-16 w-auto"
+            className="mx-auto h-24 w-24 rounded-2xl"
           />
           <h1 className="mt-6 font-orbitron text-3xl text-cinza-claro sm:text-4xl">
             {app.nome}

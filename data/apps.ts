@@ -33,7 +33,7 @@ export const apps: App[] = [
     ],
     dispositivos: [],
     temTesteGratis: false,
-    logo: "/apps/nexa-tv.svg",
+    logo: "/apps/nexa-tv.png",
     corAcento: "#EF4444",
   },
   {
@@ -53,7 +53,7 @@ export const apps: App[] = [
     ],
     dispositivos: [],
     temTesteGratis: true,
-    logo: "/apps/nexocine.svg",
+    logo: "/apps/nexocine.png",
     corAcento: "#22D3EE",
   },
   {
@@ -73,7 +73,7 @@ export const apps: App[] = [
     ],
     dispositivos: [],
     temTesteGratis: false,
-    logo: "/apps/unitv.svg",
+    logo: "/apps/unitv.png",
     corAcento: "#F97316",
   },
 ];

@@ -22,9 +22,9 @@ export function CardApp({ app }: CardAppProps) {
       <Image
         src={app.logo}
         alt={`Logo do ${app.nome}`}
-        width={160}
-        height={64}
-        className="h-12 w-auto"
+        width={56}
+        height={56}
+        className="h-14 w-14 rounded-xl"
       />
 
       <h3 className="mt-4 font-orbitron text-lg text-cinza-claro">

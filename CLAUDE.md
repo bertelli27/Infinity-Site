@@ -106,7 +106,7 @@ Centralizar os textos em `lib/whatsapp.ts`.
 ## Identidade visual
 
 - **Cores (tokens em `globals.css`):** `--roxo: #8A2BE2` · `--roxo-escuro: #5A00D6` · `--preto: #0D0D12` · `--cinza-escuro: #1A1A24` · `--cinza-claro: #F2F2F5`. Apenas tema escuro nesta fase.
-- **Fontes (via `next/font/google`):** Orbitron (títulos, com moderação, porque é difícil de ler em blocos), Raleway SemiBold (subtítulos) e Raleway Regular (corpo).
+- **Fontes (via `next/font/google`):** Orbitron (títulos, com moderação, porque é difícil de ler em blocos) e Montserrat (subtítulos e corpo, pesos 400 e 600).
 - **Elementos:** gradientes roxos sutis, linhas finas, grid de pontos discreto, bordas com brilho leve, cards elevados e cantos arredondados.
 - **Ícones:** escudo (confiança), raio (agilidade), infinito, headset (suporte). Usar `lucide-react`.
 - **Logo da Infinity:** colorido sobre fundo escuro, com área de respiro. Copiar `logo-colorido.png` e `logo-outline.png` do Painel para `public/`.

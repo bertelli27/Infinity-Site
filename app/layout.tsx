@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Orbitron, Raleway } from "next/font/google";
+import { Orbitron, Montserrat } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
@@ -10,8 +10,8 @@ const orbitron = Orbitron({
   weight: ["500", "600", "700"],
 });
 
-const raleway = Raleway({
-  variable: "--font-raleway",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["400", "600"],
 });
@@ -40,9 +40,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${orbitron.variable} ${raleway.variable} h-full`}
+      className={`${orbitron.variable} ${montserrat.variable} h-full`}
     >
-      <body className="flex min-h-full flex-col font-raleway antialiased">
+      <body className="flex min-h-full flex-col font-montserrat antialiased">
         <a
           href="#conteudo"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-roxo focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-cinza-claro"
